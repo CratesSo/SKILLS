@@ -4,7 +4,7 @@
 
 ## How to use
 1. **Edit Skill** to use your browser of choice.
-2. Type `$report <request>` or use `report recap` / `report recap+`.
+2. Type `$report <request>` or use `$report recap` / `$report recap+`.
 3. Follow the HTML export flow for the selected mode.
 
 ### Examples:
