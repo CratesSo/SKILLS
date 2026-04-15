@@ -23,20 +23,20 @@ description: User triggered.
 - Run final validation after `navigator` returns.
 
 # NAVIGATOR PROMPT
-Spawn `navigator` with `fork_context=false`.
-Copy only the contents of the fenced block below into the spawned prompt. Do not include this heading or any wrapper text.
+- Spawn `navigator` with `fork_context=false`.
+- When spawning `navigator` use the shape inside the `<navigator_prompt>` tags as the spawn prompt.
 
-```md
-### AUDIT LENSE
-- concise description of audit lens
+<navigator_prompt>
+# AUDIT LENSE:
+[concise description of audit lens]
 
-### NAVIGATOR INSTRUCTIONS
-1. Explore repo to detect hotspots for a reviewer team to investigate. Don't investigate yourself, only map.
-2. NEVER spawn `navigator` agents for further exploration. You must explore yourself.
+## NAVIGATOR INSTRUCTIONS:
+1. Explore repo to detect hotspots for a reviewer team to investigate. Don't investigate or speculate yourself, only map.
+2. NEVER spawn `navigator` or `explorer` agents for further exploration.
 3. After exploring, define non-overlapping path/subsystem slices that cover the hotspots, then spawn and brief a `reviewer` or `reviewer_mini` for each slice based on complexity (more complex = `reviewer`, less complex = `reviewer_mini`).
-4. Wait for the full reviewer wave to finish before triage. Do not spawn any `worker` or `worker_mini` until every spawned `reviewer` and `reviewer_mini` has returned.
+4. Wait for the full reviewer wave to finish before triage. Never spawn any `worker` or `worker_mini` until every spawned `reviewer` and `reviewer_mini` has returned.
 5. Triage returned review findings. If zero accepted findings remain after triage, return a no-findings report and stop. Otherwise, you must spawn a `worker` or `worker_mini` for each accepted implementation slice based on risk/complexity (more risk/complex=`worker`, less risk/complex=`worker_mini`).
-6. Do not return your final response until all required workers have finished and you have consolidated their results.
+6. Don't return your final response until all required workers have finished and you've consolidated their results.
 
 ### RUN POLICY
 - Exclude generated, build, cache, and lockstep artifact paths.
@@ -46,17 +46,19 @@ Copy only the contents of the fenced block below into the spawned prompt. Do not
 - Use `worker` for broader or riskier slices, cross-file invariants, or heavier reconciliation.
 - If zero accepted findings remain after triage, return a no-findings report and stop.
 
-## NAVIGATOR -> REVIEWER PROMPT
-Spawn each `reviewer` or `reviewer_mini` with `fork_context=false`.
-Copy only the contents of the fenced block below into the spawned prompt. Do not include this heading or any wrapper text.
+# NAVIGATOR -> REVIEWER PROMPT
+- Spawn each `reviewer` or `reviewer_mini` with `fork_context=false`.
+- Use only the shape of the fenced block below for the spawn prompt.
 
-```md
-### GOAL
-- describe audit lens
-### RELEVANT FILES
-- list relevant paths or files owned by slice
-### AVOID
-- areas to avoid that are covered by any other slices
+```text
+GOAL:
+[describe audit lens]
+
+RELEVANT FILES:
+[list relevant paths or files owned by slice]
+
+AVOID
+[areas to avoid that are covered by any other slices]
 ```
 
 ## NAVIGATOR TRIAGE RULES
@@ -68,43 +70,46 @@ Copy only the contents of the fenced block below into the spawned prompt. Do not
 - Keep write scopes non-overlapping when parallel workers are used.
 - Don't pass raw reviewer output to workers. Compress each implementation slice into a small execution brief.
 
-## NAVIGATOR -> WORKER PROMPT
-If one or more implementation slices are accepted after triage, and only after the full reviewer wave has finished, you must spawn the required `worker` or `worker_mini` agents using `fork_context=false`.
-Copy only the contents of the fenced block below into the spawned prompt. Do not include this heading or any wrapper text.
+# NAVIGATOR -> WORKER PROMPT
+- If one or more implementation slices are accepted after triage, and only after the full reviewer wave has finished, you must spawn the required `worker` or `worker_mini` agents using `fork_context=false`.
+- Use only the shape of the fenced block below as the spawn prompt:
 
-```md
-### GOAL
-- describe slice for worker to implement based on reviewer findings
-### FILES
-- exact files needed to implement change
-### AVOID
-- overlap delegated in other worker slices to avoid
+```text
+GOAL:
+[describe slice for worker to implement based on reviewer findings]
+
+FILES:
+[exact files needed to implement change]
+
+AVOID:
+[overlap delegated in other worker slices to avoid]
 ```
+</navigator_prompt>
 
 ## NAVIGATOR -> PARENT REPORT
-Return the following report body exactly, but only after either:
-- zero accepted findings remained after triage, or
-- all required workers finished and their results were consolidated.
-Do not include this heading or any wrapper text.
+- Return the following report body, but only after either:
+  - zero accepted findings remained after triage, or
+  - all required workers finished and their results were consolidated.
+- Use only the shape of the fenced block below for the report body.
 
-```md
-## ACCEPTED REVIEWER FINDINGS
-- **title**: `<concise description>` -> `<owned files>`
+```text
+ACCEPTED REVIEWER FINDINGS:
+[title]: [concise description] -> [owned files]
+
 ## WORKER RESULTS
-- **title**: `<concise result>`
+- [title]: [concise result]
 ```
 
 # FINAL PARENT RESPONSE
-Parent returns the following response body after validation.
-Do not include this heading or any wrapper text.
+- Parent returns the following response body after validation.
 
 ```md
 ## ACCEPTED FINDINGS
-- **title**: concise description
+- **title**: [concise description]
 ## FIXES IMPLEMENTED
-- **title**: concise description
+- **title**: [concise description]
 ## VALIDATION
-- concise bullets of tests done
+- [concise bullets of tests done]
 ## RESIDUAL ISSUES
-- concise bullets
+- [concise bullets]
 ```
