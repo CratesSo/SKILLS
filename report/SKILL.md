@@ -3,15 +3,18 @@ name: report
 description: User triggered.
 ---
 # HTML RESPONSE
-- Use only when user explicitly invokes `report <user_request>`, `report recap`, or `report recap+`.
+- Use only when user explicitly invokes `report`.
 - Output only HTML. No markdown, no prose before or after the doc.
 - Always return complete HTML doc with `<!DOCTYPE html>`, `<html>`, `<head>`, and `<body>`.
 - Never output HTML into chat.
-- If user invokes without a clear or valid mode, reply in chat with a concise explanation of the valid modes.
+- If user invokes `report` with text after it, treat that trailing text as the request.
+- Reserve `report recap` and `report recap+` as the only special modes.
+- If user invokes bare `report` with no trailing request, reply in chat with a concise explanation of the valid modes.
 
 ## MODE
 - `report <user request>`
   - Format your next reply as a full HTML doc based on user request.
+  - Treat any text after `report` as the request, including plain phrases like `break it down`.
   - Save it in workspace and open in Brave.
 - `report recap`
   - Use most recent assistant reply in thread as only content source.
