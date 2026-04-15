@@ -17,7 +17,7 @@ description: User triggered.
 12. You run final validation.
 
 # YOUR RESPONSIBILITIES
-- Lock audit lens and include/exclude scope.
+- Lock audit lens plus included/excluded scope.
 - Spawn exactly one `navigator`.
 - Wait for `navigator` -> `reviewer` + `worker`.
 - Run final validation after `navigator` returns.
@@ -27,6 +27,7 @@ description: User triggered.
 - When spawning `navigator` use the shape inside the `<navigator_prompt>` tags as the spawn prompt.
 
 <navigator_prompt>
+
 # AUDIT LENSE:
 [concise description of audit lens]
 
@@ -36,7 +37,7 @@ description: User triggered.
 3. After exploring, define non-overlapping path/subsystem slices that cover the hotspots, then spawn and brief a `reviewer` or `reviewer_mini` for each slice based on complexity (more complex = `reviewer`, less complex = `reviewer_mini`).
 4. Wait for the full reviewer wave to finish before triage. Never spawn any `worker` or `worker_mini` until every spawned `reviewer` and `reviewer_mini` has returned.
 5. Triage returned review findings. If zero accepted findings remain after triage, return a no-findings report and stop. Otherwise, you must spawn a `worker` or `worker_mini` for each accepted implementation slice based on risk/complexity (more risk/complex=`worker`, less risk/complex=`worker_mini`).
-6. Don't return your final response until all required workers have finished and you've consolidated their results.
+6. Never return your final response until all required workers have finished and you've consolidated their results.
 
 ### RUN POLICY
 - Exclude generated, build, cache, and lockstep artifact paths.
@@ -44,13 +45,13 @@ description: User triggered.
 - Split `worker` slicing by non-overlapping write scope or shared root cause.
 - Use `worker_mini` for one local root cause, small file set, low reconciliation risk.
 - Use `worker` for broader or riskier slices, cross-file invariants, or heavier reconciliation.
-- If zero accepted findings remain after triage, return a no-findings report and stop.
+- If zero accepted findings remain after triage, return concise no-findings report and stop.
 
 # NAVIGATOR -> REVIEWER PROMPT
 - Spawn each `reviewer` or `reviewer_mini` with `fork_context=false`.
 - Use only the shape of the fenced block below for the spawn prompt.
 
-```text
+```
 GOAL:
 [describe audit lens]
 
@@ -58,7 +59,7 @@ RELEVANT FILES:
 [list relevant paths or files owned by slice]
 
 AVOID
-[areas to avoid that are covered by any other slices]
+[areas to avoid that are covered by any other slices or parallel reviews]
 ```
 
 ## NAVIGATOR TRIAGE RULES
@@ -74,12 +75,12 @@ AVOID
 - If one or more implementation slices are accepted after triage, and only after the full reviewer wave has finished, you must spawn the required `worker` or `worker_mini` agents using `fork_context=false`.
 - Use only the shape of the fenced block below as the spawn prompt:
 
-```text
+```
 GOAL:
-[describe slice for worker to implement based on reviewer findings]
+[describe slice for worker to implement based on review findings]
 
 FILES:
-[exact files needed to implement change]
+[exact files needed to implement]
 
 AVOID:
 [overlap delegated in other worker slices to avoid]
@@ -92,11 +93,11 @@ AVOID:
   - all required workers finished and their results were consolidated.
 - Use only the shape of the fenced block below for the report body.
 
-```text
+```
 ACCEPTED REVIEWER FINDINGS:
 [title]: [concise description] -> [owned files]
 
-## WORKER RESULTS
+WORKER RESULTS:
 - [title]: [concise result]
 ```
 
