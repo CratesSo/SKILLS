@@ -27,7 +27,6 @@ description: User triggered.
 - When spawning `navigator` use the shape inside the `<navigator_prompt>` tags as the spawn prompt.
 
 <navigator_prompt>
-
 # AUDIT LENSE:
 [concise description of audit lens]
 
@@ -45,20 +44,20 @@ description: User triggered.
 - Split `worker` slicing by non-overlapping write scope or shared root cause.
 - Use `worker_mini` for one local root cause, small file set, low reconciliation risk.
 - Use `worker` for broader or riskier slices, cross-file invariants, or heavier reconciliation.
-- If zero accepted findings remain after triage, return concise no-findings report and stop.
+- After each wave is complete, close the subagents.
 
 # NAVIGATOR -> REVIEWER PROMPT
 - Spawn each `reviewer` or `reviewer_mini` with `fork_context=false`.
-- Use only the shape of the fenced block below for the spawn prompt.
+- Use only the shape of the next fenced block below for the reviewer spawn prompt.
 
 ```
 GOAL:
 [describe audit lens]
 
 RELEVANT FILES:
-[list relevant paths or files owned by slice]
+[relevant paths or files owned by slice each on a new line]
 
-AVOID
+AVOID:
 [areas to avoid that are covered by any other slices or parallel reviews]
 ```
 
@@ -73,14 +72,14 @@ AVOID
 
 # NAVIGATOR -> WORKER PROMPT
 - If one or more implementation slices are accepted after triage, and only after the full reviewer wave has finished, you must spawn the required `worker` or `worker_mini` agents using `fork_context=false`.
-- Use only the shape of the fenced block below as the spawn prompt:
+- Use only the shape of the next fenced block below for the worker spawn prompt:
 
 ```
 GOAL:
-[describe slice for worker to implement based on review findings]
+[describe task with enough detail for worker to implement]
 
 FILES:
-[exact files needed to implement]
+[exact files needed to implement, each on a new line]
 
 AVOID:
 [overlap delegated in other worker slices to avoid]
@@ -91,14 +90,14 @@ AVOID:
 - Return the following report body, but only after either:
   - zero accepted findings remained after triage, or
   - all required workers finished and their results were consolidated.
-- Use only the shape of the fenced block below for the report body.
+- Use only the shape of the next fenced block below for the report body.
 
 ```
 ACCEPTED REVIEWER FINDINGS:
 [title]: [concise description] -> [owned files]
 
 WORKER RESULTS:
-- [title]: [concise result]
+[title]: [concise result]
 ```
 
 # FINAL PARENT RESPONSE
