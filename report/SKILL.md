@@ -2,16 +2,19 @@
 name: report
 description: User triggered.
 ---
+
 # HTML RESPONSE
+
 - Use only when user explicitly invokes `report`.
-- Output only HTML. No markdown, no prose before or after the doc.
+- Output only HTML. No markdown or prose before or after the doc.
 - Always return complete HTML doc with `<!DOCTYPE html>`, `<html>`, `<head>`, and `<body>`.
 - Never output HTML into chat.
 - If user invokes `report` with text after it, treat that trailing text as the request.
 - Reserve `report recap` and `report recap+` as the only special modes.
-- If user invokes bare `report` with no trailing request, reply in chat with a concise explanation of the valid modes.
+- If user invokes bare `report` with no trailing request, reply in chat with concise explanation of valid modes.
 
 ## MODE
+
 - `report <user request>`
   - Format your next reply as a full HTML doc based on user request.
   - Treat any text after `report` as the request, including plain phrases like `break it down`.
@@ -29,6 +32,7 @@ description: User triggered.
 - If `recap` or `recap+` has no meaningful prior assistant reply in thread, fail clearly.
 
 ## HTML RULES
+
 - Use compact `<style>` block in `<head>`.
 - Keep styling self-contained and readable: typography, spacing, headings, lists, tables, code blocks, simple callouts.
 - Prefer semantic HTML: `main`, `section`, `h1`-`h3`, `p`, `ul`/`ol`, `table`, `pre`, `code`, `blockquote`.
@@ -38,6 +42,7 @@ description: User triggered.
 - Inline JavaScript is allowed when materially improving comprehension. Default to static HTML plus CSS.
 
 ## EXPORT WORKFLOW
+
 - Treat current workspace root as active cwd for task.
 - Save exports under `.html-response/` in workspace root.
 - Filename format: `html-response-YYYYMMDD-HHMMSS.html`.

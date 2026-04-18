@@ -2,14 +2,15 @@
 name: actions
 description: User triggered.
 ---
-# Codex Actions
+
+# actions
 
 ## When To Use
 
-- Add a new workspace action.
-- Show or audit current workspace actions.
-- Update an existing action name/icon/command.
-- Remove workspace action.
+- Adding a new workspace action.
+- Showing or auditing current workspace actions.
+- Updating an existing action name/icon/command.
+- Removing workspace action.
 
 ## Source Of Truth
 
@@ -70,19 +71,12 @@ Preserve all existing non-action content. Only add/edit/move/remove the `[[actio
 1. Resolve target workspace.
 2. Read `.codex/environments/environment.toml`.
 3. Parse existing `[[actions]]` blocks.
-4. Infer user requested operation:
-- create/add
-- inspect/list/show
-- update/edit/change
-- remove/delete
-5. Extract or confirm:
-- action `name`
-- `icon`
-- `command`
+4. Infer user requested operation: create/add, inspect/list/show, update/edit/change, remove/delete
+5. Extract or confirm: action `name`, `icon`, `command`
 6. Run static/light verification before mutating.
 7. Report final action name, icon, target file, and command used.
 
-## Natural-Language Extraction
+## Natural-Language
 
 Default to plain-English requests:
 
@@ -108,9 +102,10 @@ If action with same name already exists:
 
 ## Verification
 
-Do static/light checks only. Don't run action command.
+Do static/light checks only. Never run action command.
 
 Check for:
+
 - target directories referenced by `cd`
 - wrong repo root
 - `npm run ...` in path without `package.json`
