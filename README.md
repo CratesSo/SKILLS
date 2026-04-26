@@ -1,57 +1,80 @@
 # Skills
 
-Each skill is ranked from most to least powerful inside its category.
+**Each skill is ranked from most to least powerful inside its category.**
 
 ## Codex Specific
 
-### 1. Plan My Grill
+### Plan My Grill
 
-**WARNING: This is a good skill.**
+!! WARNING: This is a good skill !!
+
+```md
 Interrogate plans and designs until they are handoff-ready.
+```
 
-### 2. Actions
+### Actions
 
+```md
 Manage workspace actions in `.codex/environments/environment.toml`.
+```
 
 ## Code Review
 
-### 1. Audit Team
+### Audit Team
 
+```md
 Coordinate agentic audit workflows from scope mapping through triage and fixes.
+```
 
-### 2. Slop Team Six
+### Slop Team Six
 
+```md
 Run evidence-backed cleanup sweeps using subagents and lane playbooks.
+```
 
-### 3. Python Radon
+### Python Radon
 
+```md
 Run Radon complexity and maintainability scans on Python code.
+```
 
-### 4. Preflight
+### Preflight
 
+```md
 Run production-readiness preflight checks across security, database, deployment, and code.
+```
 
-### 5. Vulture
+### Vulture
 
+```md
 Find and remove confirmed Python dead code.
+```
 
-### 6. Bandit
+### Bandit
 
+```md
 Run Bandit security scans on Python code and report prioritized findings.
+```
 
 ## Quality of Life
 
-### 1. Report
+### Report
 
+```md
 Generate complete standalone HTML reports from recap or custom requests.
+```
 
-### 2. Handoff
+### Handoff
 
+```md
 Generate concise continuation prompts from current thread context and tool results.
+```
 
-### 3. YOLO
+### YOLO
 
+```md
 Finish explicit requests without tests, cleanup, or validation gates.
+```
 
 ## Versions
 
