@@ -4,7 +4,7 @@
 
 ## Codex Specific
 
-#### <u>Plan My Grill</u>
+#### Plan My Grill
 
 !! WARNING: This is a good skill !!
 Interrogate plans and designs until they are handoff-ready.
@@ -13,7 +13,7 @@ Interrogate plans and designs until they are handoff-ready.
 npx skills@latest add CratesSo/skills/plan-my-grill
 ```
 
-#### <u>Actions</u>
+#### Actions
 
 Manage workspace actions in `.codex/environments/environment.toml`.
 
@@ -23,7 +23,7 @@ npx skills@latest add CratesSo/skills/actions
 
 ## Code Review
 
-#### <u>Audit Team</u>
+#### Audit Team
 
 Coordinate agentic audit workflows from scope mapping through triage and fixes.
 
@@ -31,7 +31,7 @@ Coordinate agentic audit workflows from scope mapping through triage and fixes.
 npx skills@latest add CratesSo/skills/audit-team
 ```
 
-#### <u>Slop Team Six</u>
+#### Slop Team Six
 
 Run evidence-backed cleanup sweeps using subagents and lane playbooks.
 
@@ -39,7 +39,7 @@ Run evidence-backed cleanup sweeps using subagents and lane playbooks.
 npx skills@latest add CratesSo/skills/slop-team-six
 ```
 
-#### <u>Python Radon</u>
+#### Python Radon
 
 Run Radon complexity and maintainability scans on Python code.
 
@@ -47,7 +47,7 @@ Run Radon complexity and maintainability scans on Python code.
 npx skills@latest add CratesSo/skills/python-radon
 ```
 
-#### <u>Preflight</u>
+#### Preflight
 
 Run production-readiness preflight checks across security, database, deployment, and code.
 
@@ -55,7 +55,7 @@ Run production-readiness preflight checks across security, database, deployment,
 npx skills@latest add CratesSo/skills/preflight
 ```
 
-#### <u>Vulture</u>
+#### Vulture
 
 Find and remove confirmed Python dead code.
 
@@ -63,7 +63,7 @@ Find and remove confirmed Python dead code.
 npx skills@latest add CratesSo/skills/vulture
 ```
 
-#### <u>Bandit</u>
+#### Bandit
 
 Run Bandit security scans on Python code and report prioritized findings.
 
@@ -73,7 +73,7 @@ npx skills@latest add CratesSo/skills/bandit
 
 ## Quality of Life
 
-#### <u>Report</u>
+#### Report
 
 Generate complete standalone HTML reports from recap or custom requests.
 
@@ -81,7 +81,7 @@ Generate complete standalone HTML reports from recap or custom requests.
 npx skills@latest add CratesSo/skills/report
 ```
 
-#### <u>Handoff</u>
+#### Handoff
 
 Generate concise continuation prompts from current thread context and tool results.
 
@@ -89,7 +89,7 @@ Generate concise continuation prompts from current thread context and tool resul
 npx skills@latest add CratesSo/skills/handoff
 ```
 
-#### <u>YOLO</u>
+#### YOLO
 
 Finish explicit requests without tests, cleanup, or validation gates.
 
