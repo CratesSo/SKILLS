@@ -70,7 +70,7 @@ Use `low`, `medium`, or `high` for overall priority. Prefer fewer high-confidenc
 
 ## POINTER CONTRACT
 
-The replacement text in `AGENTS.md` must be short and explicit. Use the shape INSIDE the fenced block below, unless the surrounding file has a clearly better local style:
+The replacement text in `AGENTS.md` must be short and explicit. Use the shape INSIDE the fenced block below (don't include the fenced block itself), unless the surrounding file has a clearly better local style:
 
 ```md
 ## <Original Section Title>
@@ -92,7 +92,7 @@ Each created reference file must:
 
 ## REPORTING CONTRACT
 
-On the audit turn, report using the template INSIDE the fenced block below:
+On the audit turn, report using a visible Markdown body using the template INSIDE the fenced block below:
 
 ```md
 ## TARGET
@@ -121,7 +121,7 @@ If a section is empty, write `None`.
 2. Confirm every moved section exists in one canonical place.
 3. Confirm `AGENTS.md` includes each expected pointer with correct absolute path.
 4. Confirm unrelated `AGENTS.md` sections were not changed.
-5. Report using the template INSIDE the fenced block below:
+5. Report using a visible Markdown body using the template INSIDE the fenced block below:
 
 ```md
 ## Changed Files

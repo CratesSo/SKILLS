@@ -74,7 +74,7 @@ If unsure, use `needs confirmation` over `remove`.
 
 ## REPORTING CONTRACT
 
-On the audit turn, report decisions using the template INSIDE the fenced block below:
+On the audit turn, report decisions using a visible Markdown body using the template INSIDE the fenced block below:
 
 ```md
 ## MERGE
@@ -104,7 +104,7 @@ If a section is empty, write `None`.
 2. Confirm intended sections still exist.
 3. Confirm applied safe duplicates and redundancies are gone.
 4. Confirm no unconfirmed `NEEDS CONFIRMATION` item was removed.
-5. Return final output using the template INSIDE the fenced block below (skipping any section without changes):
+5. Return final output using a visible Markdown body using the template INSIDE the fenced block below (skipping any section without changes):
 
 ```md
 ## Merged

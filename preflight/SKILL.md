@@ -92,7 +92,7 @@ Use `reviewer_mini`:
 
 ### Frontend Explorer
 
-Use `explorer`:
+Use `explorer_standard`:
 
 - No API keys or secrets in frontend code
 - No console.logs in production build
@@ -100,7 +100,7 @@ Use `explorer`:
 
 ### Database explorer
 
-Use `explorer`. Mark production-only facts `UNKNOWN` unless there is repo, provider, or user evidence:
+Use `explorer_standard`. Mark production-only facts `UNKNOWN` unless there is repo, provider, or user evidence:
 
 - Backups configured and tested
 - Separate dev and production databases
@@ -110,7 +110,7 @@ Use `explorer`. Mark production-only facts `UNKNOWN` unless there is repo, provi
 
 ### Deployment explorer
 
-Use `explorer`. Mark runtime infrastructure facts `UNKNOWN` unless verified from provider state, config, docs, or user confirmation:
+Use `explorer_standard`. Mark runtime infrastructure facts `UNKNOWN` unless verified from provider state, config, docs, or user confirmation:
 
 - HTTPS enforced everywhere, HTTP redirected
 - CORS locked to your domain

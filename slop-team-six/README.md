@@ -8,7 +8,7 @@
 
 *This skill is optimized for specific, pre-configured subagents:*
 
-- `navigator`: Use a cheap and fast model with low reasoning for fast read-only mapping.
+- `explorer_deep`: Use the strongest explorer model for complex read-only mapping.
 - `cleanup`: Use any solid model in read-only mode.
 - `worker`: Use the most capable coding optimized model.
 - `worker_mini`: Use a faster coding model or the most capable one with lower reasoning.
@@ -21,7 +21,7 @@
 
 ## Version
 
-Current version: v2.0.1
+Current version: v2.0.2
 
 ## Install
 

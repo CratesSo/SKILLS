@@ -8,7 +8,7 @@
 
 *This skill is optimized for specific, pre-configured subagents:*
 
-- `navigator`: Use a cheap and fast model with `Low` reasoning for fast read-only mapping.
+- `explorer_deep`: Use the strongest explorer model for complex read-only mapping.
 - `worker`: Use the most capable coding optimized model.
 - `worker_mini`: Use a faster coding model or the most capable one with lower reasoning.
 - `reviewer`: Use a coding optimized model on `High` reasoning.
@@ -17,7 +17,7 @@
 ## How to use
 
 1. Type `$audit-team <audit lens>`.
-2. Follow the navigator-led audit, triage, implementation, and validation flow.
+2. Follow the parent-led audit, mapping, triage, implementation, and validation flow.
 
 ### Examples
 
@@ -27,7 +27,7 @@
 
 ## Version
 
-Current version: v1.5.0
+Current version: v1.5.1
 
 ## Install
 

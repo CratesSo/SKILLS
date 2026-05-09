@@ -47,7 +47,7 @@ Never delete lessons without user confirmation. If deletion is not confirmed, le
 3. Confirm `lessons.md` is consecutively numbered from `1.`.
 4. Confirm no unconfirmed delete candidate was removed.
 5. Confirm reported before/after line and bullet counts match the final files.
-6. After edits, report decisions concisely using the template INSIDE the fenced block below:
+6. After edits, report decisions concisely with a visible Markdown body using the template INSIDE the fenced block below:
 
 ```md
 ### A ← Moved

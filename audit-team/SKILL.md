@@ -5,88 +5,80 @@ description: "Coordinate agentic audit workflows from scope mapping through tria
 
 # CANONICAL FLOW
 
-1. You lock audit lens, scope, and budgets.
-2. You spawn one `navigator`.
-3. `navigator` maps repo area relevant to audit lens and defines default exclusions.
-4. `navigator` creates non-overlapping `reviewer` slices by path or subsystem.
-5. `navigator` spawns `reviewer` wave.
-6. Reviewers return confirmed findings.
-7. `navigator` triages `reviewer` output, rejects weak findings, merges duplicates, and groups accepted findings into non-overlapping implementation slices.
-8. `navigator` chooses `worker_mini` or `worker` per implementation slice.
-9. `navigator` spawns the worker wave for accepted implementation slices.
-10. Workers return changes made.
-11. `navigator` consolidates full run and wraps concise report for you.
-12. You run final validation.
+1. Lock audit lens, scope, and exclusions.
+2. Spawn one `explorer_deep` to map repo areas relevant to the audit lens and identify hotspots.
+3. `explorer_deep` returns mapping and you close it.
+4. Create non-overlapping `reviewer` or `reviewer_mini` slices by path or subsystem.
+5. Spawn reviewer wave.
+6. Wait for all reviewers to finish, then close them.
+7. Triage reviewer output, reject weak findings, merge duplicates, and group accepted findings into non-overlapping implementation slices.
+8. For tiny trivial accepted fixes, you may implement locally.
+9. For non-trivial accepted fixes, you choose `worker_mini` or `worker` per implementation slice and spawn the worker wave.
+10. Wait for all workers to finish, then close them.
+11. Run final validation and report final output.
 
-## YOUR RESPONSIBILITIES
-
-- Lock audit lens plus included/excluded scope.
-- Spawn exactly one `navigator`.
-- Wait for `navigator` -> `reviewer` + `worker`.
-- Run final validation after `navigator` returns.
-
-## NAVIGATOR PROMPT
-
-- Spawn `navigator` with `fork_context=false` and use the shape inside the `<navigator_prompt>` tags as the spawn prompt.
-
-<navigator_prompt>
-
-## AUDIT LENS
-
-[concise actionable description of audit lens]
-
-## NAVIGATOR INSTRUCTIONS
-
-You are a Navigator agent:
-
-1. Explore repo to detect hotspots for a reviewer team to investigate. Don't investigate or speculate yourself, only map.
-2. NEVER spawn `navigator` or `explorer` agents for further exploration.
-3. After exploring, define non-overlapping path/subsystem slices that cover the hotspots, then spawn and brief a `reviewer` or `reviewer_mini` for each slice based on complexity (more complex = `reviewer`, less complex = `reviewer_mini`).
-4. Wait for the full reviewer wave to finish before triage. Never spawn any `worker` or `worker_mini` until every spawned `reviewer` and `reviewer_mini` has returned.
-5. Triage returned review findings. If zero accepted findings remain after triage, return a no-findings report and stop. Otherwise, you must spawn a `worker` or `worker_mini` for each accepted implementation slice based on risk/complexity (more risk/complex=`worker`, less risk/complex=`worker_mini`).
-6. Never return your final response until all required workers have finished and you've consolidated their results.
-
-## NAVIGATOR POLICY
+## PARENT RESPONSIBILITIES
 
 - Exclude generated, build, cache, and lockstep artifact paths.
-- Split `reviewer` slicing by non-overlapping path/subsystem ownership and prefer a small number of meaningful slices over fragmentation.
-- Split `worker` slicing by non-overlapping write scope or shared root cause.
+- Split `reviewer`/`reviewer_mini` slicing by non-overlapping path/subsystem ownership and prefer a small number of meaningful slices over fragmentation.
+- Split implementation by non-overlapping write scope or shared root cause.
 - Use `worker_mini` for one local root cause, small file set, low reconciliation risk.
 - Use `worker` for broader or riskier slices, cross-file invariants, or heavier reconciliation.
-- After each wave is complete, close the subagents.
+- Spawn workers directly only after the full reviewer wave has finished and triage accepted implementation work.
 
-## NAVIGATOR -> REVIEWER PROMPT
+## PARENT -> EXPLORER_DEEP PROMPT
 
-- Spawn each `reviewer` or `reviewer_mini` with `fork_context=false`.
-- Use the shape INSIDE the next fenced block below for the reviewer spawn prompt.
+Use the shape INSIDE the next fenced block below when spawning `explorer_deep`.
 
 ```text
-GOAL:
-[describe audit lens]
+Don't investigate findings deeply or triage findings. Your purpose is only to map repo areas relevant to the audit lens and identify likely audit hotspots for other agents to run a deeper pass on. Never spawn subagents.
 
-RELEVANT FILES:
+GOAL:
+[actionable description/context of audit lens]
+
+SCOPE:
+[paths, subsystems, or repo areas included]
+
+AVOID:
+[generated, build, cache, lockstep artifact, or out-of-scope paths]
+
+RETURN:
+- Relevant repo areas and why they matter.
+```
+
+## PARENT -> REVIEWER PROMPT
+
+Use the shape INSIDE the next fenced block below when spawning `reviewer` or `reviewer_mini`.
+
+```text
+Never spawn subagents.
+
+GOAL:
+[describe reviewer slice with actionable info/context]
+
+SCOPE:
 [relevant paths or files owned by slice each on a new line]
 
 AVOID:
-[areas to avoid that are covered by any other slices or parallel reviews]
+[areas to avoid that are out of scope or covered by other slices or parallel reviews]
 ```
 
-## NAVIGATOR TRIAGE RULES
+## PARENT TRIAGE RULES
 
-- Wait for all reviewers to finish before triage starts.
-- Reject weak, duplicate, speculative, or overlapping findings.
-- Merge duplicate findings across slices.
 - Keep only accepted findings worth implementing.
 - Group accepted findings into implementation slices by shared files or shared root cause.
 - Keep write scopes non-overlapping when parallel workers are used.
-- Don't pass raw reviewer output to workers. Compress each implementation slice into a small execution brief.
+- Compress each implementation slice into a small execution brief before spawning a `worker` or `worker_mini`.
+- If zero accepted findings remain after triage, skip implementation and report no accepted findings.
 
-## NAVIGATOR -> WORKER PROMPT
+## PARENT -> WORKER PROMPT
 
-- If one or more implementation slices are accepted after triage, and only after the full reviewer wave has finished, you must spawn the required `worker` or `worker_mini` agents using `fork_context=false`.
-- Use the shape INSIDE the next fenced block below for the worker spawn prompt:
+- If one or more non-trivial implementation slices are accepted after triage, and only after the full reviewer wave has finished, spawn the required `worker` or `worker_mini` agents.
+- Use the shape INSIDE the next fenced block below when spawning `worker` or `worker_mini`:
 
 ```text
+Never spawn subagents.
+
 GOAL:
 [describe task with enough detail for worker to implement]
 
@@ -97,26 +89,9 @@ AVOID:
 [overlap delegated in other worker slices to avoid]
 ```
 
-</navigator_prompt>
+## FINAL OUTPUT
 
-## NAVIGATOR -> PARENT REPORT
-
-- Return the following report body, but only after either:
-  - zero accepted findings remained after triage, or
-  - all required workers finished and their results were consolidated.
-- Use the shape INSIDE the next fenced block below for the report body.
-
-```text
-ACCEPTED REVIEWER FINDINGS:
-[title]: [concise description] -> [owned files]
-
-WORKER RESULTS:
-[title]: [concise result]
-```
-
-## FINAL PARENT RESPONSE
-
-Parent returns the following response body using shape INSIDE the fenced block below after validation:
+Return the following response body using shape INSIDE the fenced block below after validation:
 
 ```md
 ## ACCEPTED FINDINGS
