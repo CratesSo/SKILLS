@@ -72,7 +72,7 @@ When using subagents, split work by evidence surface, not by checklist heading. 
 
 ### Auth/Session Reviewer
 
-Use `reviewer` for serious launch audits or `reviewer_mini` for smaller apps:
+Use `reviewer_heavy`:
 
 - Every route checks authentication
 - Passwords hashed with bcrypt or argon2
@@ -82,7 +82,7 @@ Use `reviewer` for serious launch audits or `reviewer_mini` for smaller apps:
 
 ### API/data reviewer
 
-Use `reviewer_mini`:
+Use `reviewer_heavy`:
 
 - Input validated and sanitized server-side
 - Parameterized queries everywhere

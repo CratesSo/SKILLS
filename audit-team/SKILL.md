@@ -8,7 +8,7 @@ description: "Coordinate agentic audit workflows from scope mapping through tria
 1. Lock audit lens, scope, and exclusions.
 2. Spawn one `explorer_deep` to map repo areas relevant to the audit lens and identify hotspots.
 3. `explorer_deep` returns mapping and you close it.
-4. Create non-overlapping `reviewer` or `reviewer_mini` slices by path or subsystem.
+4. Create non-overlapping `reviewer_heavy` or `reviewer_mid` slices by path or subsystem.
 5. Spawn reviewer wave.
 6. Wait for all reviewers to finish, then close them.
 7. Triage reviewer output, reject weak findings, merge duplicates, and group accepted findings into non-overlapping implementation slices.
@@ -20,7 +20,7 @@ description: "Coordinate agentic audit workflows from scope mapping through tria
 ## PARENT RESPONSIBILITIES
 
 - Exclude generated, build, cache, and lockstep artifact paths.
-- Split `reviewer`/`reviewer_mini` slicing by non-overlapping path/subsystem ownership and prefer a small number of meaningful slices over fragmentation.
+- Split `reviewer_heavy`/`reviewer_mid` slicing by non-overlapping path/subsystem ownership and prefer a small number of meaningful slices over fragmentation.
 - Split implementation by non-overlapping write scope or shared root cause.
 - Use `worker_mini` for one local root cause, small file set, low reconciliation risk.
 - Use `worker` for broader or riskier slices, cross-file invariants, or heavier reconciliation.
@@ -48,7 +48,7 @@ RETURN:
 
 ## PARENT -> REVIEWER PROMPT
 
-Use the shape INSIDE the next fenced block below when spawning `reviewer` or `reviewer_mini`.
+Use the shape INSIDE the next fenced block below when spawning `reviewer_heavy` or `reviewer_mid`.
 
 ```text
 Never spawn subagents.

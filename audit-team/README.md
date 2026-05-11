@@ -8,11 +8,11 @@
 
 *This skill is optimized for specific, pre-configured subagents:*
 
-- `explorer_deep`: Use the strongest explorer model for complex read-only mapping.
+- `explorer_deep`: Use escalated read-only mapping when standard exploration is insufficient, the code path spans multiple modules, or deeper local evidence is needed.
 - `worker`: Use the most capable coding optimized model.
 - `worker_mini`: Use a faster coding model or the most capable one with lower reasoning.
-- `reviewer`: Use a coding optimized model on `High` reasoning.
-- `reviewer_mini`: Use a faster coding optimized model on `High` reasoning.
+- `reviewer_heavy`: Use deep read-only review for high-reasoning audits, regressions, and security/correctness risks.
+- `reviewer_mid`: Use standard read-only review for normal code review.
 
 ## How to use
 
@@ -27,7 +27,7 @@
 
 ## Version
 
-Current version: v1.5.1
+Current version: v1.5.2
 
 ## Install
 
