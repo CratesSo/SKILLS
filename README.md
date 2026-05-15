@@ -21,6 +21,14 @@ Manage workspace actions in `.codex/environments/environment.toml`.
 npx skills@latest add CratesSo/skills/actions
 ```
 
+#### Goal
+
+Design durable Codex self-goals with explicit success and stop conditions.
+
+```sh
+npx skills@latest add CratesSo/skills/goal
+```
+
 ## Code Review
 
 #### Fix
@@ -138,6 +146,7 @@ npx skills@latest add CratesSo/skills/yolo
 | **agents-splitter** | `agents-splitter/` | v1.0.3 | `agents-splitter/v1.0.3` |
 | **audit-team** | `audit-team/` | v1.5.2 | `audit-team/v1.5.2` |
 | **fix** | `fix/` | v1.0.0 | `fix/v1.0.0` |
+| **goal** | `goal/` | v1.0.0 | `goal/v1.0.0` |
 | **handoff** | `handoff/` | v1.0.3 | `handoff/v1.0.3` |
 | **lessons-doctor** | `lessons-doctor/` | v1.0.4 | `lessons-doctor/v1.0.4` |
 | **plan-my-grill** | `plan-my-grill/` | v1.6.2 | `plan-my-grill/v1.6.2` |
