@@ -13,20 +13,20 @@ Interrogate plans and designs until they are handoff-ready.
 npx skills@latest add CratesSo/skills/plan-my-grill
 ```
 
-#### Actions <img src="./actions/assets/icon.png" width="40" alt="Actions icon">
-
-Manage workspace actions in `.codex/environments/environment.toml`.
-
-```sh
-npx skills@latest add CratesSo/skills/actions
-```
-
 #### Goal <img src="./goal/assets/icon.png" width="40" alt="Goal icon">
 
 Design durable Codex self-goals with explicit success and stop conditions.
 
 ```sh
 npx skills@latest add CratesSo/skills/goal
+```
+
+#### Actions <img src="./actions/assets/icon.png" width="40" alt="Actions icon">
+
+Manage workspace actions in `.codex/environments/environment.toml`.
+
+```sh
+npx skills@latest add CratesSo/skills/actions
 ```
 
 ## Code Review
