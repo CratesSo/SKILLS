@@ -113,14 +113,6 @@ Manage a repo-root `todo.md` with durable four-character item references.
 npx skills@latest add CratesSo/skills/todo
 ```
 
-#### YOLO
-
-Finish explicit requests without tests, cleanup, or validation gates.
-
-```sh
-npx skills@latest add CratesSo/skills/yolo
-```
-
 ## Versions
 
 | Skill | Directory | Current version | Tag |
@@ -138,7 +130,6 @@ npx skills@latest add CratesSo/skills/yolo
 | **report** | `report/` | v1.1.0 | `report/v1.1.0` |
 | **slop-team-six** | `slop-team-six/` | v2.0.4 | `slop-team-six/v2.0.4` |
 | **todo** | `todo/` | v0.1.1 | `todo/v0.1.1` |
-| **yolo** | `yolo/` | v1.0.0 | `yolo/v1.0.0` |
 
 ## Install / Pin
 
