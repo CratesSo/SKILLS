@@ -1,57 +1,28 @@
 ---
 name: handoff
-description: "Generate concise continuation prompts from current thread context and tool results."
+description: "Generate and load a context handoff packet on demand."
 ---
+# $HANDOFF
+1. Infer current goals, done states, settled decisions, task-specific constraints, key workspace anchors, and blockers from active thread context and any tool results already in scope.
+2. Generate a handoff prompt for an agent in a new thread to read as continuation context and save it as `HANDOFF.md` in current repo root (if `HANDOFF.md` already exists, overwrite it).
 
-# WORKFLOW
-
-Generate a handoff prompt for a new thread in same workspace using only live thread context and any tool results already in scope. Never read sqlite state, session rollouts, hidden history.
-
-1. Infer current goals, done states, settled decisions, task-specific constraints, key workspace anchors, and blocking open risks from active thread.
-2. Drop routine chatter, status noise, raw tool output, dead-end branches.
-3. If objectives, direction, or anchors are too fuzzy to hand off honestly, ask short clarifying questions.
-4. Emit handoff prompt and nothing else.
-
-## PROMPT CONTRACT
-
-Handoff must:
-
-- be written for fresh continuation thread in same workspace
-- preserve settled decisions, key files or commands, blocking open risks
-- keep task-specific user preferences or workflow rules when material
-
-Handoff must not:
-
-- read like diary or transcript
-- include raw logs or command output
-- carry over abandoned approaches unless they explain live constraints
-
-### HANDOFF STYLE
-
-- Balanced length.
-- Compact, but preserving important info.
-- Concrete anchors over abstract recap.
-- If a section would be empty or non-essential, omit it, but always include `SUMMARY` and `GOAL`.
+## $HANDOFF RUN
+- If user invokes this skill with `run` after it, fully read `HANDOFF.md` from current repo root, treating it as continuation context, then await further instruction (if `HANDOFF.md` is missing, say `HANDOFF.md missing` if skill was invoked with `run`).
 
 ## HANDOFF TEMPLATE
+Use template below when making `HANDOFF.md`:
 
-Use template inside fenced block below, adapting section length to relevant recent thread history and current task:
+## SUMMARY / HISTORY
+summary of recent material and important work done in thread
 
-```md
-This is info only context from previous thread. Don't act until prompted.
+## CURRENT GOAL / TASK
+describe current material objective(s)/task(s)
 
-SUMMARY:
-<short high level summary of recent work done in thread>
+## SETTLED DECISIONS
+- describe locked choice(s) or constraint(s)
 
-GOAL:
-<current objectives>
+## KEY ANCHORS
+- list files, symbols, commands, or key factual anchors
 
-SETTLED DECISIONS:
-<locked choices or constraints>
-
-KEY ANCHORS:
-<file, symbol, command, factual anchors>
-
-BLOCKING OPEN RISKS:
-<only if could change the next moves>
-```
+## BLOCKERS
+- list material blockers or omit section if none

@@ -27,7 +27,7 @@
 
 ## Version
 
-Current version: v1.5.2
+Current version: v1.5.3
 
 ## Install
 

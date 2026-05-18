@@ -12,7 +12,7 @@
 
 ## Version
 
-Current version: v1.0.5
+Current version: v1.0.6
 
 ## Install
 `npx skills@latest add CratesSo/skills/agents-doctor`

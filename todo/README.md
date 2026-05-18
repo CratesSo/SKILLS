@@ -20,7 +20,7 @@
 
 ## Version
 
-Current version: v0.1.1
+Current version: v0.1.2
 
 ## Install
 

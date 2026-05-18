@@ -17,7 +17,7 @@
 
 ## Version
 
-Current version: v1.0.6
+Current version: v1.0.7
 
 ## Install
 

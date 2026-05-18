@@ -3,9 +3,6 @@
 Use the template INSIDE the fenced block below when spawning `reviewer_heavy` during `Wave 3` for higher-risk completed cleanup work:
 
 ```text
-LANE ASSIGNMENTS:
-[Lane n: lane name, or MERGE: Lane n + Lane m]
-
 PARENT-SYNTHESIZED LANE CONSTRAINTS:
 - [constraints carried forward from Wave 1 and triage]
 
