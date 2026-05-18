@@ -31,12 +31,12 @@ npx skills@latest add CratesSo/skills/actions
 
 ## Code Review
 
-#### Fix <img src="./fix/assets/icon.png" width="40" alt="Fix icon">
+#### Slop Team Six <img src="./slop-team-six/assets/icon.png" width="40" alt="Slop Team Six icon">
 
-Investigate technical failures before applying narrow, verified fixes.
+Run evidence-backed cleanup sweeps using subagents and lane playbooks.
 
 ```sh
-npx skills@latest add CratesSo/skills/fix
+npx skills@latest add CratesSo/skills/slop-team-six
 ```
 
 #### Audit Team <img src="./audit-team/assets/icon.png" width="40" alt="Audit Team icon">
@@ -47,12 +47,12 @@ Coordinate agentic audit workflows from scope mapping through triage and fixes.
 npx skills@latest add CratesSo/skills/audit-team
 ```
 
-#### Slop Team Six <img src="./slop-team-six/assets/icon.png" width="40" alt="Slop Team Six icon">
+#### Fix <img src="./fix/assets/icon.png" width="40" alt="Fix icon">
 
-Run evidence-backed cleanup sweeps using subagents and lane playbooks.
+Investigate technical failures before applying narrow, verified fixes.
 
 ```sh
-npx skills@latest add CratesSo/skills/slop-team-six
+npx skills@latest add CratesSo/skills/fix
 ```
 
 #### Preflight <img src="./preflight/assets/icon.png" width="40" alt="Preflight icon">
