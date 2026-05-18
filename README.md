@@ -15,6 +15,8 @@ Interrogate plans and designs until they are handoff-ready.
 npx skills@latest add CratesSo/skills/plan-my-grill
 ```
 
+---
+
 #### Goal
 
 <img src="./goal/assets/icon.png" width="40" alt="Goal icon">
@@ -24,6 +26,8 @@ Design durable Codex self-goals with explicit success and stop conditions.
 ```sh
 npx skills@latest add CratesSo/skills/goal
 ```
+
+---
 
 #### Actions
 
@@ -47,6 +51,8 @@ Run evidence-backed cleanup sweeps using subagents and lane playbooks.
 npx skills@latest add CratesSo/skills/slop-team-six
 ```
 
+---
+
 #### Audit Team
 
 <img src="./audit-team/assets/icon.png" width="40" alt="Audit Team icon">
@@ -57,6 +63,8 @@ Coordinate agentic audit workflows from scope mapping through triage and fixes.
 npx skills@latest add CratesSo/skills/audit-team
 ```
 
+---
+
 #### Fix
 
 <img src="./fix/assets/icon.png" width="40" alt="Fix icon">
@@ -66,6 +74,8 @@ Investigate technical failures before applying narrow, verified fixes.
 ```sh
 npx skills@latest add CratesSo/skills/fix
 ```
+
+---
 
 #### Preflight
 
@@ -89,6 +99,8 @@ Audit repo AGENTS.md files for safe cleanup opportunities.
 npx skills@latest add CratesSo/skills/agents-doctor
 ```
 
+---
+
 #### Agents Splitter
 
 <img src="./agents-splitter/assets/icon.png" width="40" alt="Agents Splitter icon">
@@ -98,6 +110,8 @@ Split large AGENTS.md guidance into on-demand reference files.
 ```sh
 npx skills@latest add CratesSo/skills/agents-splitter
 ```
+
+---
 
 #### Lessons Doctor
 
@@ -109,6 +123,8 @@ Move durable repo lessons into local AGENTS.md guidance.
 npx skills@latest add CratesSo/skills/lessons-doctor
 ```
 
+---
+
 #### Handoff
 
 <img src="./handoff/assets/icon.png" width="40" alt="Handoff icon">
@@ -119,6 +135,8 @@ Generate concise continuation prompts from current thread context and tool resul
 npx skills@latest add CratesSo/skills/handoff
 ```
 
+---
+
 #### Report
 
 <img src="./report/assets/icon.png" width="40" alt="Report icon">
@@ -128,6 +146,8 @@ Generate complete standalone HTML reports from recap or custom requests.
 ```sh
 npx skills@latest add CratesSo/skills/report
 ```
+
+---
 
 #### Todo
 
