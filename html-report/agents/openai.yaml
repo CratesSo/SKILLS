@@ -1,7 +1,7 @@
 interface:
-  display_name: "Report"
+  display_name: "HTML Report"
   short_description: "Render standalone HTML reports"
-  default_prompt: "Use $report."
+  default_prompt: "Use $html-report."
 
   icon_small: "./assets/icon.png"
   icon_large: "./assets/icon.png"
