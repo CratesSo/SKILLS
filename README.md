@@ -11,7 +11,6 @@
 | Codex Specific | yes |
 | Install | `npx skills@latest add CratesSo/skills/plan-my-grill` |
 
----
 
 #### Goal
 
@@ -20,7 +19,6 @@
 | Codex Specific | yes |
 | Install | `npx skills@latest add CratesSo/skills/goal` |
 
----
 
 #### Handoff
 
@@ -29,7 +27,6 @@
 | Codex Specific | yes |
 | Install | `npx skills@latest add CratesSo/skills/handoff` |
 
----
 
 #### Actions
 
@@ -38,7 +35,6 @@
 | Codex Specific | yes |
 | Install | `npx skills@latest add CratesSo/skills/actions` |
 
----
 
 #### Agents Doctor
 
@@ -47,7 +43,6 @@
 | Codex Specific | no |
 | Install | `npx skills@latest add CratesSo/skills/agents-doctor` |
 
----
 
 #### HTML Report
 
@@ -56,7 +51,6 @@
 | Codex Specific | no |
 | Install | `npx skills@latest add CratesSo/skills/html-report` |
 
----
 
 #### Todo
 
@@ -74,7 +68,6 @@
 | Codex Specific | no |
 | Install | `npx skills@latest add CratesSo/skills/slop-team-six` |
 
----
 
 #### Audit Team
 
@@ -83,7 +76,6 @@
 | Codex Specific | no |
 | Install | `npx skills@latest add CratesSo/skills/audit-team` |
 
----
 
 #### Code
 
@@ -92,7 +84,6 @@
 | Codex Specific | no |
 | Install | `npx skills@latest add CratesSo/skills/code` |
 
----
 
 #### Fix
 
@@ -101,7 +92,6 @@
 | Codex Specific | no |
 | Install | `npx skills@latest add CratesSo/skills/fix` |
 
----
 
 #### Preflight
 
