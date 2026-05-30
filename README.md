@@ -20,6 +20,14 @@
 
 ---
 
+#### Handoff
+
+| <img src="./handoff/assets/icon.png" width="40" alt="Handoff icon"> | Generate concise continuation prompts from current thread context and tool results. |
+| --- | --- |
+| Install | `npx skills@latest add CratesSo/skills/handoff` |
+
+---
+
 #### Actions
 
 | <img src="./actions/assets/icon.png" width="40" alt="Actions icon"> | Manage workspace actions in `.codex/environments/environment.toml`. |
@@ -73,14 +81,6 @@
 | <img src="./agents-doctor/assets/icon.png" width="40" alt="Agents Doctor icon"> | Audit repo AGENTS.md files for safe cleanup opportunities. |
 | --- | --- |
 | Install | `npx skills@latest add CratesSo/skills/agents-doctor` |
-
----
-
-#### Handoff
-
-| <img src="./handoff/assets/icon.png" width="40" alt="Handoff icon"> | Generate concise continuation prompts from current thread context and tool results. |
-| --- | --- |
-| Install | `npx skills@latest add CratesSo/skills/handoff` |
 
 ---
 
