@@ -1,4 +1,4 @@
-# fix <img src="./assets/icon.png" width="40" alt="fix icon">
+# fix <img src="./assets/icon.png" width="40" alt="fix crossed wrenches icon">
 - Investigate technical failures before proposing or applying fixes.
 - Trace root cause, compare working paths, and verify the narrowest useful fix.
 

@@ -1,4 +1,4 @@
-# goal <img src="./assets/icon.png" width="40" alt="goal icon">
+# goal <img src="./assets/icon.png" width="40" alt="goal target reticle icon">
 - Designs durable Codex self-goals with explicit success and stop conditions.
 - Interrogates long-running work until the objective contract is clear enough to start.
 
