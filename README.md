@@ -20,8 +20,8 @@
 | --- | --- | --- | --- |
 | <div align="center"><strong>Slop Team Six</strong><br><img src="./slop-team-six/assets/icon.png" width="40" alt="Slop Team Six icon"></div> | Run evidence-backed cleanup sweeps using subagents and lane playbooks. | `npx skills@latest add CratesSo/skills/slop-team-six` | <div align="center">no</div> |
 | <div align="center"><strong>Audit Team</strong><br><img src="./audit-team/assets/icon.png" width="40" alt="Audit Team icon"></div> | Coordinate agentic audit workflows from scope mapping through triage and fixes. | `npx skills@latest add CratesSo/skills/audit-team` | <div align="center">no</div> |
-| <div align="center"><strong>Code</strong><br><img src="./code/assets/icon.png" width="40" alt="Code icon"></div> | Apply strict engineering constraints for complex coding, risky edits, refactoring, and cleanup. | `npx skills@latest add CratesSo/skills/code` | <div align="center">no</div> |
 | <div align="center"><strong>Fix</strong><br><img src="./fix/assets/icon.png" width="40" alt="Fix icon"></div> | Investigate technical failures before applying narrow, verified fixes. | `npx skills@latest add CratesSo/skills/fix` | <div align="center">no</div> |
+| <div align="center"><strong>Code</strong><br><img src="./code/assets/icon.png" width="40" alt="Code icon"></div> | Apply strict engineering constraints for complex coding, risky edits, refactoring, and cleanup. | `npx skills@latest add CratesSo/skills/code` | <div align="center">no</div> |
 | <div align="center"><strong>Preflight</strong><br><img src="./preflight/assets/icon.png" width="40" alt="Preflight icon"></div> | Run production-readiness preflight checks across security, database, deployment, code, and Bandit scanning for Python. | `npx skills@latest add CratesSo/skills/preflight` | <div align="center">no</div> |
 
 ## Versions
@@ -37,8 +37,8 @@
 | **todo** | `todo/` | v0.1.3 | `todo/v0.1.3` |
 | **slop-team-six** | `slop-team-six/` | v2.0.6 | `slop-team-six/v2.0.6` |
 | **audit-team** | `audit-team/` | v1.5.3 | `audit-team/v1.5.3` |
-| **code** | `code/` | v1.0.0 | `code/v1.0.0` |
 | **fix** | `fix/` | v2.0.0 | `fix/v2.0.0` |
+| **code** | `code/` | v1.0.0 | `code/v1.0.0` |
 | **preflight** | `preflight/` | v1.0.4 | `preflight/v1.0.4` |
 
 ## Pin
