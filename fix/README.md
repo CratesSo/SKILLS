@@ -12,7 +12,7 @@
 
 ## Version
 
-Current version: v2.0.0
+Current version: v2.1.0
 
 ## Install
 `npx skills@latest add CratesSo/skills/fix`

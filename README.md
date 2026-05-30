@@ -37,7 +37,7 @@
 | **todo** | `todo/` | v0.1.3 | `todo/v0.1.3` |
 | **slop-team-six** | `slop-team-six/` | v2.0.6 | `slop-team-six/v2.0.6` |
 | **audit-team** | `audit-team/` | v1.5.3 | `audit-team/v1.5.3` |
-| **fix** | `fix/` | v2.0.0 | `fix/v2.0.0` |
+| **fix** | `fix/` | v2.1.0 | `fix/v2.1.0` |
 | **code** | `code/` | v1.0.0 | `code/v1.0.0` |
 | **preflight** | `preflight/` | v1.0.4 | `preflight/v1.0.4` |
 

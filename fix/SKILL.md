@@ -38,6 +38,8 @@ Focus on one highest confidence hypothesis at a time:
 7. Remove any temporary debugging code, tests, or repros.
 8. Fix any potential docs/policy surface drift with minimal change.
 
+Perform audits one at a time; after correctness changes, move to next audit.
+
 - If a fix fails or can't be validated, revert change and return to evidence before attempting again.
 - If two fix attempts on the same issue fail, stop and consider if the architecture, pattern, or assumption is wrong and proceed with a different approach.
 - If investigation showed environmental, timing, or external issue, state what was checked and what evidence supports that conclusion and add appropriate handling like retry, timeout, clearer error, diagnostic logging, etc.
