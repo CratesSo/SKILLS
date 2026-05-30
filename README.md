@@ -40,14 +40,8 @@
 | **code** | `code/` | v1.0.0 | `code/v1.0.0` |
 | **fix** | `fix/` | v2.0.0 | `fix/v2.0.0` |
 | **preflight** | `preflight/` | v1.0.4 | `preflight/v1.0.4` |
-## Install / Pin
 
-Install a skill from this repo with `npx skills@latest add`.
-
-Examples:
-
-- `npx skills@latest add CratesSo/skills/actions`
-- `npx skills@latest add CratesSo/skills/plan-my-grill`
+## Pin
 
 Use the matching tag when pinning a published version.
 
