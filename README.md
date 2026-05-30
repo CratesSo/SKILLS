@@ -43,7 +43,7 @@
 
 ## Pin
 
-Use the matching tag when pinning a published version.
+**Use the matching tag when pinning a published version.**
 
 Examples:
 
