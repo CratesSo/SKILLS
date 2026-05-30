@@ -10,12 +10,14 @@ Run execution-first cleanup sweep. Scan repo, activate relevant cleanup lanes, p
 - Default stance is aggressive cleanup with evidence.
 - Use repo-native tools when present. If a useful analysis tool is absent, install shared tools before spawning agents or approve lane-scoped install commands in the relevant handoff.
 - Always spawn agents with `fork_context: false`.
+- Run the hooky slop scanner in an attached shell session, not context-mode; full scans can exceed context-mode's 120s limit.
 
 ## REFERENCE LOADING
 
 - Read spawned-agent prompt references only before spawning that agent.
 - Read `references/tooling.md` during preflight and build a parent-owned tool inventory before Wave 1 starts.
 - Pass lane reference paths to Wave 1 agents; do not load lane references in the parent unless needed to resolve ambiguity.
+- During triage, reread only the assigned lane reference(s) when Wave 1 evidence is thin, checklist coverage is unclear, or an implementation brief needs lane-specific boundaries.
 - Do not ask Wave 2 or reviewer agents to read lane references. Pass them parent-synthesized validated briefs instead.
 
 ## CANONICAL FLOW
@@ -47,7 +49,7 @@ Run execution-first cleanup sweep. Scan repo, activate relevant cleanup lanes, p
 - missing-but-useful tools and any parent-approved lane-scoped install commands
 - relevant lane-specific tool references under `references/tools/`
 
-Read `references/tooling.md` during preflight. `Wave 1` must not start until tool availability is known and each `Wave 1` handoff lists usable commands plus any parent-approved install commands.
+Read `references/tooling.md` during preflight. `Wave 1` must not start until tool availability is known and each `Wave 1` handoff lists usable commands, required execution mode, plus any parent-approved install commands.
 
 ## LANES AND WAVE 1 BATCHES
 
@@ -72,9 +74,11 @@ After each numbered discovery batch, triage findings, merge overlaps, and skip o
 
 ## WAVE 1: EVIDENCE
 
-For each `ACTIVE` or `MERGE` lane assignment in the current numbered discovery batch, spawn a read-only `cleanup` agent to gather evidence-backed findings for parent triage.
+For each `ACTIVE` or `MERGE` lane assignment in the current numbered discovery batch, spawn the read-only `cleanup` agent to gather evidence-backed findings for parent triage.
 
 Use `references/tooling.md` to build the available command list for each `Wave 1` handoff. If a needed tool is absent, install it before spawning the lane agent.
+
+When a `Wave 1` handoff includes the hooky slop scanner, label it attached-shell-only and instruct the agent not to run it through context-mode.
 
 ## TRIAGE
 

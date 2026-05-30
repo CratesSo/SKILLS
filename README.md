@@ -29,16 +29,16 @@
 | Skill | Directory | Current version | Tag |
 | --- | --- | --- | --- |
 | **plan-my-grill** | `plan-my-grill/` | v1.6.3 | `plan-my-grill/v1.6.3` |
-| **goal** | `goal/` | v1.0.1 | `goal/v1.0.1` |
-| **handoff** | `handoff/` | v2.0.0 | `handoff/v2.0.0` |
+| **goal** | `goal/` | v2.0.0 | `goal/v2.0.0` |
+| **handoff** | `handoff/` | v3.0.0 | `handoff/v3.0.0` |
 | **agents-doctor** | `agents-doctor/` | v1.0.6 | `agents-doctor/v1.0.6` |
 | **html-report** | `html-report/` | v1.1.1 | `html-report/v1.1.1` |
 | **actions** | `actions/` | v1.0.7 | `actions/v1.0.7` |
-| **todo** | `todo/` | v0.1.2 | `todo/v0.1.2` |
-| **slop-team-six** | `slop-team-six/` | v2.0.5 | `slop-team-six/v2.0.5` |
+| **todo** | `todo/` | v0.1.3 | `todo/v0.1.3` |
+| **slop-team-six** | `slop-team-six/` | v2.0.6 | `slop-team-six/v2.0.6` |
 | **audit-team** | `audit-team/` | v1.5.3 | `audit-team/v1.5.3` |
 | **code** | `code/` | v1.0.0 | `code/v1.0.0` |
-| **fix** | `fix/` | v1.0.1 | `fix/v1.0.1` |
+| **fix** | `fix/` | v2.0.0 | `fix/v2.0.0` |
 | **preflight** | `preflight/` | v1.0.4 | `preflight/v1.0.4` |
 ## Install / Pin
 

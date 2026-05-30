@@ -24,7 +24,7 @@ VALIDATION EXPECTED:
 GOAL:
 Review the completed cleanup work for regressions, correctness risks, over-broad edits, missed validation, violations of the parent-synthesized lane constraints, changes outside allowed write scope, and changes that exceed the accepted Wave 1 proof.
 
-NEVER spawn subagents unless explicitly asked to!
+NEVER spawn subagents.
 Stay read-only. Do not implement fixes, run fixers, format files, update snapshots, install dependencies, or modify repo files.
 
 CHANGED FILES:

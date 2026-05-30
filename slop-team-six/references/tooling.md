@@ -16,6 +16,7 @@ Do not pass this whole file to subagents. Build short `PARENT-APPROVED INSTALL C
 - Prefer repo scripts and local binaries. Use `npx` only when intentionally using a temporary analysis tool.
 - When converting examples to `npm exec`, keep tool flags before positional paths, for example `npm exec -- madge --circular src`. Do not insert an extra `--` before tool flags.
 - Exclude generated, vendor, cache, build, dist, coverage, lockfile, and fixture areas unless the lane specifically targets them.
+- Run the hooky slop scanner from `references/tools/slop-scan.md` in an attached shell session only. Do not run it with context-mode; full scans can exceed context-mode's 120s limit.
 
 ## JavaScript and TypeScript
 
@@ -55,7 +56,7 @@ Do not pass this whole file to subagents. Build short `PARENT-APPROVED INSTALL C
 
 ## Go
 
-- Baseline checks: `go test ./...`, `go vet ./...`, `gofmt -w` only when implementing, `staticcheck ./...`.
+- Baseline checks: `go test ./...`, `go vet ./...`, `gofmt -l .` or `gofmt -d .`, `staticcheck ./...`. Use `gofmt -w` only during Wave 2 implementation when formatting edits are explicitly in scope.
 - Lane 1 unused code: `go test ./...`, `staticcheck ./...`, targeted reference searches.
 - Lane 2 legacy paths: `go mod why -m <module>`, search for deprecated packages and compat branches.
 - Lane 3 slop: `staticcheck ./...`, search for TODOs, panics in non-test code, stub comments.
@@ -88,4 +89,4 @@ Do not pass this whole file to subagents. Build short `PARENT-APPROVED INSTALL C
 
 For each active lane, pass a compact tool block relevant to that lane using the `AVAILABLE TOOLS AND COMMANDS` schema in `references/wave1-cleanup.md`.
 
-If no useful lane-specific tool is available, say that directly and provide targeted search commands or repo-native checks instead.
+For the hooky slop scanner, include attached-shell-only execution mode in the handoff. If no useful lane-specific tool is available, say that directly and provide targeted search commands or repo-native checks instead.

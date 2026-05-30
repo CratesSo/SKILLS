@@ -1,47 +1,43 @@
 ---
 name: fix
-description: "Use proactively for technical fixes: bugs, failed tests, build failures, regressions, performance issues, integration failures, production issues, and unexpected behavior."
+description: "Use proactively for any technical fixes like bugs, failed tests, build failures, regressions, performance issues, production issues, and unexpected behavior."
 ---
 # Iron Rules
-- No fixes before root-cause investigation; Always gather evidence first.
-- If root cause is not understood, never propose or apply a fix. 
+- Never implement fixes before investigation.
+- If root cause not understood, don't speculate; continue gathering evidence until understood before proceeding.
 
 ## Workflow
+You must complete all phases below in order and their subsequent steps in order:
 
 ### Phase 1: Investigate
-Complete before suggesting fixes:
-1. Read full errors, warnings, stack traces, file paths, line numbers, and error codes.
-2. Inspect recent changes, relevant config, dependencies, and environment differences.
-3. For multi-component failures, gather boundary evidence before proposing fixes: what enters each component, what exits each component, whether config, environment, state, and data propagate correctly.
+1. Read any relevant errors, warnings, stack traces, paths, and line numbers.
+2. Inspect any relevant recent changes, relevant config, dependencies, and environment differences.
+3. For multi-component failures, gather boundary evidence: what enters and exits each component, if config, environment, state, and data propagate correctly.
 4. Reproduce issue with exact steps, command, input, or failing test.
 5. Trace bad values, state, or behavior backward until source found.
 
 ### Phase 2: Compare
-Find the pattern before changing code:
-- Locate similar working code or behavior in same codebase.
-- Compare working and broken paths.
-- Identify meaningful differences, including small config, data, dependency, and environment differences.
+1. Locate similar working code or behavior.
+2. Compare working and broken paths.
+3. Identify meaningful differences like config, data, dependency, environment, etc.
+4. Stop when you have enough evidence to form hypothesis.
 
 ### Phase 3: Hypothesize
-Use one hypothesis at a time:
-- State suspected root cause clearly.
-- Explain why evidence supports it.
-- Test hypothesis with smallest possible probe or change.
-- If it fails, discard hypothesis and return to evidence; Never stack fixes.
+Focus on one highest confidence hypothesis at a time:
+1. State suspected root cause clearly and why evidence supports it.
+2. Create smallest useful failing reproduction: automated test, command, script, or manual repro.
+3. Test hypothesis with smallest probe or change; If it fails, discard hypothesis and return to evidence.
 
 ### Phase 4: Fix
-Fix only after root cause identified:
-- Create smallest useful failing reproduction first: automated test, command, script, or manual repro.
-- Make one root-cause fix only.
-- Verify the reproduction now passes.
-- Run narrowest relevant validation for changed behavior.
+1. Implement root-cause fix.
+2. Verify reproduction passes and run validation.
+3. Audit fix for correctness and implement correctness changes.
+4. Audit fix for correctness a second time and implement correctness changes.
+5. Audit fix for correctness a third time and implement correctness changes.
+6. Run narrowest validation.
+7. Remove any temporary debugging code, tests, or repros.
+8. Fix any potential docs/policy surface drift with minimal change.
 
-If two fix attempts fail, stop. Consider if the architecture, pattern, or assumption is wrong before attempting another fix.
-
-## Stop Signal
-Return to investigation when you catch any of these:
-- proposing fixes without evidence
-- proposing fixes before reproducing issue
-- proposing fixes before testing hypothesis with smallest probe
-
-If investigation shows an environmental, timing, or external issue, document what was checked and what evidence supports that conclusion. Then add appropriate handling such as retry, timeout, clearer error, or diagnostic logging.
+- If a fix fails or can't be validated, revert change and return to evidence before attempting again.
+- If two fix attempts on the same issue fail, stop and consider if the architecture, pattern, or assumption is wrong and proceed with a different approach.
+- If investigation showed environmental, timing, or external issue, state what was checked and what evidence supports that conclusion and add appropriate handling like retry, timeout, clearer error, diagnostic logging, etc.

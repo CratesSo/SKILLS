@@ -12,7 +12,7 @@
 
 ## Version
 
-Current version: v1.0.1
+Current version: v2.0.0
 
 ## Install
 `npx skills@latest add CratesSo/skills/goal`

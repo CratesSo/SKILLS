@@ -22,6 +22,12 @@ Run from the repo root or smallest target directory:
 python3 /Users/admin/Desktop/codex/hooky/hooks/slop_scan.py
 ```
 
+## Execution Mode
+
+- Run this scanner in an attached shell session, then poll and summarize compactly.
+- Do not run this scanner through context-mode; full repo scans can exceed context-mode's 120s timeout.
+- If a scan is too broad, stop the attached shell run and rerun from a smaller target directory rather than switching to context-mode.
+
 ## Tool Policy
 
 - Install missing helper tools such as `semgrep`, `ast-grep`, `shellcheck`, or `shfmt` only when the parent handoff explicitly approves the install command and the helper materially improves coverage without changing the target repo.

@@ -6,4 +6,4 @@ interface:
   default_prompt: "Use $todo."
 
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false

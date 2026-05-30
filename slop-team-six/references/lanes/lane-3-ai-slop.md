@@ -34,7 +34,7 @@ Useful signals include repo slop scanners, lint rules for dead comments, one-cal
 
 Manual judgment matters; scanner or lint matches are candidates, not proof. A finding must explain why deletion improves the code without removing useful context.
 
-When the hooky slop scanner is available, use `references/tools/slop-scan.md` for the command, scope rules, report order, and missing-tool coverage policy. Treat scanner findings as candidates that still require proof before deletion.
+When the hooky slop scanner is available, use `references/tools/slop-scan.md` for the command, attached-shell execution rule, scope rules, report order, and missing-tool coverage policy. Treat scanner findings as candidates that still require proof before deletion.
 
 ## False Positives
 

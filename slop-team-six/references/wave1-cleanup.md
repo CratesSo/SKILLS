@@ -1,6 +1,6 @@
 # Wave 1 Cleanup Brief
 
-You must use the template INSIDE the fenced block below when spawning `cleanup` agents for `Wave 1`.
+You must use the template INSIDE the fenced block below when spawning the `cleanup` agent for `Wave 1`.
 
 ```text
 LANE ASSIGNMENT:
@@ -16,9 +16,11 @@ Read listed tool reference(s) before running matching tools.
 
 AVAILABLE TOOLS AND COMMANDS:
 - Tool/check: [real runnable command from parent preflight or lane-installed tool]
+  Execution: [attached shell session for hooky slop scanner; otherwise context-mode, direct shell, or repo-native command as appropriate]
   Use for: [what signal it proves for this lane]
   Inspect: [specific output, files, warning class, or graph]
 - Tool/check: [real runnable command from parent preflight or lane-installed tool]
+  Execution: [attached shell session for hooky slop scanner; otherwise context-mode, direct shell, or repo-native command as appropriate]
   Use for: [what signal it proves for this lane]
   Inspect: [specific output, files, warning class, or graph]
 
@@ -76,7 +78,7 @@ Use this schema exactly for your final report:
 
 (Repeat as `L[n]-F2`, `L[n]-F3`, etc. for additional findings)
 
-(Don't include proposed edits or parent action hints. Include concise command/search provenance only when needed to make evidence reproducible. Include validation expectations only when needed for parent triage. Don't omit lane-specific proof just because it overlaps with `Evidence` or `Risk/uncertainty`)
+(Don't include prescriptive implementation steps. Do include lane-specific triage boundaries, such as likely deletion scope, canonical survivor, edge to move, or validation expectation, when the lane checklist needs them for safe parent triage. Include concise command/search provenance only when needed to make evidence reproducible. Don't omit lane-specific proof just because it overlaps with `Evidence` or `Risk/uncertainty`)
 
 ## No-Finding Areas
 - **[area checked]**: why no material finding was found
