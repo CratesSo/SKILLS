@@ -6,23 +6,23 @@
 
 | Skill | Summary | Install | Codex Specific |
 | --- | --- | --- | --- |
-| <img src="./plan-my-grill/assets/icon.png" width="40" alt="Plan My Grill icon"><br>**Plan My Grill** | !! WARNING: This is a good skill !! Interrogate plans and designs until they are handoff-ready. | `npx skills@latest add CratesSo/skills/plan-my-grill` | yes |
-| <img src="./goal/assets/icon.png" width="40" alt="Goal icon"><br>**Goal** | Design durable Codex self-goals with explicit success and stop conditions. | `npx skills@latest add CratesSo/skills/goal` | yes |
-| <img src="./handoff/assets/icon.png" width="40" alt="Handoff icon"><br>**Handoff** | Generate concise continuation prompts from current thread context and tool results. | `npx skills@latest add CratesSo/skills/handoff` | yes |
-| <img src="./actions/assets/icon.png" width="40" alt="Actions icon"><br>**Actions** | Manage workspace actions in `.codex/environments/environment.toml`. | `npx skills@latest add CratesSo/skills/actions` | yes |
-| <img src="./agents-doctor/assets/icon.png" width="40" alt="Agents Doctor icon"><br>**Agents Doctor** | Audit repo AGENTS.md files for safe cleanup opportunities. | `npx skills@latest add CratesSo/skills/agents-doctor` | no |
-| <img src="./html-report/assets/icon.png" width="40" alt="HTML Report icon"><br>**HTML Report** | Generate complete standalone HTML reports from recap or custom requests. | `npx skills@latest add CratesSo/skills/html-report` | no |
-| <img src="./todo/assets/icon.png" width="40" alt="Todo icon"><br>**Todo** | Manage a repo-root `todo.md` with durable four-character item references. | `npx skills@latest add CratesSo/skills/todo` | no |
+| <div align="center"><strong>Plan My Grill</strong><br><img src="./plan-my-grill/assets/icon.png" width="40" alt="Plan My Grill icon"></div> | !! WARNING: This is a good skill !! Interrogate plans and designs until they are handoff-ready. | `npx skills@latest add CratesSo/skills/plan-my-grill` | yes |
+| <div align="center"><strong>Goal</strong><br><img src="./goal/assets/icon.png" width="40" alt="Goal icon"></div> | Design durable Codex self-goals with explicit success and stop conditions. | `npx skills@latest add CratesSo/skills/goal` | yes |
+| <div align="center"><strong>Handoff</strong><br><img src="./handoff/assets/icon.png" width="40" alt="Handoff icon"></div> | Generate concise continuation prompts from current thread context and tool results. | `npx skills@latest add CratesSo/skills/handoff` | yes |
+| <div align="center"><strong>Actions</strong><br><img src="./actions/assets/icon.png" width="40" alt="Actions icon"></div> | Manage workspace actions in `.codex/environments/environment.toml`. | `npx skills@latest add CratesSo/skills/actions` | yes |
+| <div align="center"><strong>Agents Doctor</strong><br><img src="./agents-doctor/assets/icon.png" width="40" alt="Agents Doctor icon"></div> | Audit repo AGENTS.md files for safe cleanup opportunities. | `npx skills@latest add CratesSo/skills/agents-doctor` | no |
+| <div align="center"><strong>HTML Report</strong><br><img src="./html-report/assets/icon.png" width="40" alt="HTML Report icon"></div> | Generate complete standalone HTML reports from recap or custom requests. | `npx skills@latest add CratesSo/skills/html-report` | no |
+| <div align="center"><strong>Todo</strong><br><img src="./todo/assets/icon.png" width="40" alt="Todo icon"></div> | Manage a repo-root `todo.md` with durable four-character item references. | `npx skills@latest add CratesSo/skills/todo` | no |
 
 ## Code Review
 
 | Skill | Summary | Install | Codex Specific |
 | --- | --- | --- | --- |
-| <img src="./slop-team-six/assets/icon.png" width="40" alt="Slop Team Six icon"><br>**Slop Team Six** | Run evidence-backed cleanup sweeps using subagents and lane playbooks. | `npx skills@latest add CratesSo/skills/slop-team-six` | no |
-| <img src="./audit-team/assets/icon.png" width="40" alt="Audit Team icon"><br>**Audit Team** | Coordinate agentic audit workflows from scope mapping through triage and fixes. | `npx skills@latest add CratesSo/skills/audit-team` | no |
-| <img src="./code/assets/icon.png" width="40" alt="Code icon"><br>**Code** | Apply strict engineering constraints for complex coding, risky edits, refactoring, and cleanup. | `npx skills@latest add CratesSo/skills/code` | no |
-| <img src="./fix/assets/icon.png" width="40" alt="Fix icon"><br>**Fix** | Investigate technical failures before applying narrow, verified fixes. | `npx skills@latest add CratesSo/skills/fix` | no |
-| <img src="./preflight/assets/icon.png" width="40" alt="Preflight icon"><br>**Preflight** | Run production-readiness preflight checks across security, database, deployment, code, and Bandit scanning for Python. | `npx skills@latest add CratesSo/skills/preflight` | no |
+| <div align="center"><strong>Slop Team Six</strong><br><img src="./slop-team-six/assets/icon.png" width="40" alt="Slop Team Six icon"></div> | Run evidence-backed cleanup sweeps using subagents and lane playbooks. | `npx skills@latest add CratesSo/skills/slop-team-six` | no |
+| <div align="center"><strong>Audit Team</strong><br><img src="./audit-team/assets/icon.png" width="40" alt="Audit Team icon"></div> | Coordinate agentic audit workflows from scope mapping through triage and fixes. | `npx skills@latest add CratesSo/skills/audit-team` | no |
+| <div align="center"><strong>Code</strong><br><img src="./code/assets/icon.png" width="40" alt="Code icon"></div> | Apply strict engineering constraints for complex coding, risky edits, refactoring, and cleanup. | `npx skills@latest add CratesSo/skills/code` | no |
+| <div align="center"><strong>Fix</strong><br><img src="./fix/assets/icon.png" width="40" alt="Fix icon"></div> | Investigate technical failures before applying narrow, verified fixes. | `npx skills@latest add CratesSo/skills/fix` | no |
+| <div align="center"><strong>Preflight</strong><br><img src="./preflight/assets/icon.png" width="40" alt="Preflight icon"></div> | Run production-readiness preflight checks across security, database, deployment, code, and Bandit scanning for Python. | `npx skills@latest add CratesSo/skills/preflight` | no |
 
 ## Versions
 
