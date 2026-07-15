@@ -8,22 +8,21 @@ description: "Coordinate agentic audit workflows from scope mapping through tria
 1. Lock audit lens, scope, and exclusions.
 2. Spawn one `explorer_deep` to map repo areas relevant to the audit lens and identify hotspots.
 3. `explorer_deep` returns mapping and you close it.
-4. Create non-overlapping `reviewer_heavy` or `reviewer_mid` slices by path or subsystem.
+4. Create non-overlapping reviewer slices by path or subsystem.
 5. Spawn reviewer wave.
 6. Wait for all reviewers to finish, then close them.
 7. Triage reviewer output, reject weak findings, merge duplicates, and group accepted findings into non-overlapping implementation slices.
 8. For tiny trivial accepted fixes, you may implement locally.
-9. For non-trivial accepted fixes, you choose `worker_mini` or `worker` per implementation slice and spawn the worker wave.
+9. For non-trivial accepted fixes, spawn one worker per implementation slice.
 10. Wait for all workers to finish, then close them.
 11. Run final validation and report final output.
 
 ## PARENT RESPONSIBILITIES
 
 - Exclude generated, build, cache, and lockstep artifact paths.
-- Split `reviewer_heavy`/`reviewer_mid` slicing by non-overlapping path/subsystem ownership and prefer a small number of meaningful slices over fragmentation.
+- Split reviewer work by non-overlapping path/subsystem ownership and prefer a small number of meaningful slices over fragmentation.
 - Split implementation by non-overlapping write scope or shared root cause.
-- Use `worker_mini` for one local root cause, small file set, low reconciliation risk.
-- Use `worker` for broader or riskier slices, cross-file invariants, or heavier reconciliation.
+- Use worker agents for broader or riskier slices, cross-file invariants, or heavier reconciliation.
 - Spawn workers directly only after the full reviewer wave has finished and triage accepted implementation work.
 
 ## PARENT -> EXPLORER_DEEP PROMPT
@@ -48,7 +47,7 @@ RETURN:
 
 ## PARENT -> REVIEWER PROMPT
 
-Use the shape INSIDE the next fenced block below when spawning `reviewer_heavy` or `reviewer_mid`.
+Use the shape INSIDE the next fenced block below when spawning a reviewer.
 
 ```text
 Never spawn subagents.
@@ -68,13 +67,13 @@ AVOID:
 - Keep only accepted findings worth implementing.
 - Group accepted findings into implementation slices by shared files or shared root cause.
 - Keep write scopes non-overlapping when parallel workers are used.
-- Compress each implementation slice into a small execution brief before spawning a `worker` or `worker_mini`.
+- Compress each implementation slice into a small execution brief before spawning a worker.
 - If zero accepted findings remain after triage, skip implementation and report no accepted findings.
 
 ## PARENT -> WORKER PROMPT
 
-- If one or more non-trivial implementation slices are accepted after triage, and only after the full reviewer wave has finished, spawn the required `worker` or `worker_mini` agents.
-- Use the shape INSIDE the next fenced block below when spawning `worker` or `worker_mini`:
+- If one or more non-trivial implementation slices are accepted after triage, and only after the full reviewer wave has finished, spawn the required worker agents.
+- Use the shape INSIDE the next fenced block below when spawning a worker:
 
 ```text
 Never spawn subagents.

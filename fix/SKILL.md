@@ -1,45 +1,39 @@
 ---
 name: fix
-description: "Use proactively for any technical fixes like bugs, failed tests, build failures, regressions, performance issues, production issues, and unexpected behavior."
+description: "Use proactively to investigate and fix any known technical issues like bugs, failed tests, regressions, or unexpected behavior. Don't use for code audits/reviews."
 ---
-# Iron Rules
+
+# Important Rules
 - Never implement fixes before investigation.
-- If root cause not understood, don't speculate; continue gathering evidence until understood before proceeding.
+- If root cause not fully understood, don't speculate, and continue gathering evidence until understood before proceeding.
+- You must complete all phases and steps in order:
 
-## Workflow
-You must complete all phases below in order and their subsequent steps in order:
-
-### Phase 1: Investigate
-1. Read any relevant errors, warnings, stack traces, paths, and line numbers.
+## Phase 1: Investigate
+0. Identify and verify relevant canonical paths.
+1. Locate and read any relevant errors, warnings, stack traces, paths, and line numbers.
 2. Inspect any relevant recent changes, relevant config, dependencies, and environment differences.
 3. For multi-component failures, gather boundary evidence: what enters and exits each component, if config, environment, state, and data propagate correctly.
 4. Reproduce issue with exact steps, command, input, or failing test.
 5. Trace bad values, state, or behavior backward until source found.
 
-### Phase 2: Compare
+## Phase 2: Compare
 1. Locate similar working code or behavior.
-2. Compare working and broken paths.
-3. Identify meaningful differences like config, data, dependency, environment, etc.
-4. Stop when you have enough evidence to form hypothesis.
+2. Compare working and broken paths to identify meaningful differences like config, data, dependency, environment, etc.
+3. Stop when enough evidence to form hypothesis.
 
-### Phase 3: Hypothesize
-Focus on one highest confidence hypothesis at a time:
+## Phase 3: Hypothesize
 1. State suspected root cause clearly and why evidence supports it.
 2. Create smallest useful failing reproduction: automated test, command, script, or manual repro.
-3. Test hypothesis with smallest probe or change; If it fails, discard hypothesis and return to evidence.
+3. Test hypothesis with smallest probe or change; If it fails to support hypothesis, discard and return to Phase 1.
 
-### Phase 4: Fix
-1. Implement root-cause fix.
-2. Verify reproduction passes and run validation.
-3. Audit fix for correctness and implement correctness changes.
-4. Audit fix for correctness a second time and implement correctness changes.
-5. Audit fix for correctness a third time and implement correctness changes.
-6. Run narrowest validation.
-7. Remove any temporary debugging code, tests, or repros.
-8. Fix any potential docs/policy surface drift with minimal change.
+## Phase 4: Fix
+1. Implement fix.
+2. Verify reproduction passes and run narrow validation.
 
-Perform audits one at a time; after correctness changes, move to next audit.
+If a fix fails or can't be validated, revert change and return to evidence before trying again.
 
-- If a fix fails or can't be validated, revert change and return to evidence before attempting again.
-- If two fix attempts on the same issue fail, stop and consider if the architecture, pattern, or assumption is wrong and proceed with a different approach.
-- If investigation showed environmental, timing, or external issue, state what was checked and what evidence supports that conclusion and add appropriate handling like retry, timeout, clearer error, diagnostic logging, etc.
+## Phase 5: Audit
+Audits must use a combination of inductive, deductive, causal reasoning, and counterfactual reasoning:
+1. Audit fix for correctness three times using three separate passes one at a time, implementing correctness changes after each pass.
+2. Run narrow validation.
+3. Remove any temp debugging code, tests, or repros.

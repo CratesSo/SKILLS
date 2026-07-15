@@ -6,4 +6,6 @@ interface:
   default_prompt: "Use $handoff."
 
 policy:
+  # Manual-only: do not inject this skill into agent context.
+  # It remains available only when explicitly invoked as $handoff.
   allow_implicit_invocation: false

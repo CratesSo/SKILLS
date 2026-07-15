@@ -24,7 +24,7 @@ You can answer "stop" at any time to stop early.
 
 ## Version
 
-Current version: v1.6.3
+Current version: v1.7.0
 
 ## Install
 

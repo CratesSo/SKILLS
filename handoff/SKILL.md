@@ -1,56 +1,37 @@
 ---
 name: handoff
-description: "Handoff current thread context to agent in newly created thread."
+description: "Create a new continuation thread from current context."
 ---
-# $HANDOFF
-Default invocation with no arguments uses Codex thread tools, not `HANDOFF.md`.
 
-1. Infer current goals, done states, settled decisions, task-specific constraints, key workspace anchors, and blockers from active thread context to use in continuation packet.
-2. Generate continuation packet for agent in new thread using the `## HANDOFF TEMPLATE` below; Always omit any reference or mention of codex Skills: `$skill` tags, `SKILL.md`, etc.
-3. Create a new Codex background thread with `create_thread` in same project/workspace, using local environment:
+# Instructions
+1. Infer current goals, completed work, settled decisions, task-specific constraints, key anchors, and blockers from current thread context.
+2. Build a continuation packet using the template below and keep it focused on what the next thread needs to continue cleanly. Omit any reference or mention of Codex Skills, including `$skill` tags, `SKILL.md`, and skill names.
+3. Use `create_thread` to create a new background thread in the current project and local environment with that packet:
    - `target.type`: `project`
    - `target.projectId`: current saved project/workspace id
    - `target.environment.type`: `local`
-   - `prompt`: the continuation packet plus an instruction to continue from that context
-4. If `create_thread` returns a thread id, treat creation as verified.
-5. After creation verified, rename new thread to `Handoff: <two word description>` with `set_thread_title`.
-6. If all steps completed, output a level-1 Markdown header link to the new thread, using exact format `# [Handoff Thread](codex://threads/<thread id>)`.
+   - `prompt`: continuation packet plus instruction to continue from that context
+4. After success, output only `::created-thread{threadId="<thread id>"}`.
 
-## $HANDOFF A
-If user invokes this skill with `A` after it, proceed with default invocation steps, but after creation verified, archive original/current thread with `set_thread_archived`.
+## Handoff Template
+Use this template for new thread:
 
-## $HANDOFF SAVE
-- If user invokes this skill with `save` after it, generate a continuation packet using `## HANDOFF TEMPLATE` below and save as `HANDOFF.md` in current repo root.
-- If `HANDOFF.md` already exists, overwrite it.
-- Say `Done` after writing `HANDOFF.md`.
-
-## $HANDOFF LOAD
-- If user invokes skill with `load` after it, fully read `HANDOFF.md` from current repo root, treating it as continuation context, then await further instruction.
-- If `HANDOFF.md` is missing, say `HANDOFF.md missing`.
-- If `HANDOFF.md` was present and read, say `Ready`.
-
-## UNKNOWN ARGUMENTS
-If user invokes skill with any argument other than `save` or `load`, show brief usage:
-- `$handoff save`: write `HANDOFF.md`
-- `$handoff load`: read `HANDOFF.md`
-
-## HANDOFF TEMPLATE
-Use template below when creating handoff thread or making `HANDOFF.md`:
-
+```text
 CONTEXT:
-This is context from a previous thread; Await further instructions before continuing.
+This is context from a previous thread. Await further instructions.
 
 PREVIOUS THREAD SUMMARY:
-`detailed summary of recent material and important work done in thread`
+<detailed summary of important work completed so far>
 
 CURRENT TASK(S):
-`describe current material objective(s)/task(s)`
+<current objective(s) to carry forward>
 
 SETTLED DECISIONS:
-- `describe locked choice(s) or constraint(s)`
+- <locked decisions, constraints, or conventions>
 
 KEY ANCHORS:
-- `list files, symbols, commands, or key factual anchors`
+- <important files, symbols, commands, or facts>
 
 CURRENT BLOCKERS:
-- `list material blockers or omit section if none`
+- <material blockers (omit if none)>
+```

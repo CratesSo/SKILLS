@@ -1,9 +1,0 @@
-interface:
-  display_name: "Slop Team Six"
-  short_description: "Run agent-backed cleanup sweeps"
-  default_prompt: "Use $slop-team-six."
-
-  icon_small: "./assets/icon.png"
-  icon_large: "./assets/icon.png"
-policy:
-  allow_implicit_invocation: false

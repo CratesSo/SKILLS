@@ -11,7 +11,7 @@
 
 ## Version
 
-Current version: v3.0.0
+Current version: v3.0.1
 
 ## Install
 
