@@ -1,17 +1,22 @@
 # handoff <img src="./assets/icon.png" width="40" alt="handoff icon">
 
-**Summarizes the active thread context into a repo-root `HANDOFF.md` file for fresh-thread continuation.**
+**Creates a configured continuation task from the active thread context.**
+
+## Note
+
+- This skill uses Codex's `request_user_input` questions to choose the destination, model, and reasoning effort.
+- Enable that capability in `~/.codex/config.toml` with `default_mode_request_user_input = true`.
 
 ## How to use
 
-1. Type `$handoff`.
-2. Start a fresh thread in the same repo.
-3. Type `$handoff run`.
-4. The new thread reads `HANDOFF.md`, deletes it, and replies `Ready`.
+1. Ensure `default_mode_request_user_input = true` is set in `~/.codex/config.toml`.
+2. Type `$handoff`.
+3. Select the destination, model, and reasoning effort when prompted.
+4. Continue in the created task.
 
 ## Version
 
-Current version: v3.0.1
+Current version: v3.1.0
 
 ## Install
 

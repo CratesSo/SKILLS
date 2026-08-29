@@ -12,7 +12,7 @@
 
 ## Version
 
-Current version: v1.1.0
+Current version: v1.2.0
 
 ## Install
 `npx skills@latest add CratesSo/skills/code`

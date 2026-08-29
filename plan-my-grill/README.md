@@ -4,14 +4,14 @@
 
 ## Note
 
-- *This skill is designed to leverage Codex app's plan mode UI and behavior.*
-- *This skill does not need Codex or a "Plan mode" to function, but results may vary.*
+- This skill uses Codex's `request_user_input` questions; it does not use Plan mode.
+- Enable that capability in `~/.codex/config.toml` with `default_mode_request_user_input = true`.
 
 ## How to use
 
-1. Enable *Plan mode*.
+1. Ensure `default_mode_request_user_input = true` is set in `~/.codex/config.toml`.
 2. Type `$plan-my-grill <your idea>`.
-3. Select how many question prompts you want to answer based on task depth.
+3. Select the planning depth.
 4. Answer following questions.
 5. Receive handoff-ready plan when all questions are answered.
 
@@ -24,7 +24,7 @@ You can answer "stop" at any time to stop early.
 
 ## Version
 
-Current version: v1.7.0
+Current version: v2.0.0
 
 ## Install
 
