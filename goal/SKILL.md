@@ -35,11 +35,11 @@ Prompt count tracks user prompts, not raw questions inside prompt. Finish early 
   4. Stop condition: when success is reached or when Codex should stop and report blocker.
 
 ## QUESTION RULES
-Use `request_user_input` for material questions:
+Use `request_user_input` as the default questioning mode for material questions:
 - If question can be answered by exploring code, files, or tools, explore over asking.
 - Don't ask low risk detail questions unless answer could materially change goal objective or implementation plan.
 - Call out weak or underspecified choices when they would materially weaken goal objective.
-- Always add a fire emoji instead of `(recommended)` directly after the user selectable option you most recommend for each question.
+- Mark the user-selectable option you most recommend with `(Recommended)`.
 - Prefer `2-3` tightly related questions per prompt when batching reduces back-and-forth without mixing unrelated decisions. Don't batch questions when one answer should shape the next question or when option combinations could conflict.
 
 ## DONE
