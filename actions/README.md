@@ -21,4 +21,4 @@ Current version: v1.0.7
 
 ## Install
 
-`npx skills@latest add CratesSo/skills/actions`
+`npx skills@latest add CratesSo/SKILLS/actions`

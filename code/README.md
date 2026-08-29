@@ -15,4 +15,4 @@
 Current version: v1.2.0
 
 ## Install
-`npx skills@latest add CratesSo/skills/code`
+`npx skills@latest add CratesSo/SKILLS/code`

@@ -28,6 +28,6 @@ Current version: v2.0.0
 
 ## Install
 
-`npx skills@latest add CratesSo/skills/plan-my-grill`
+`npx skills@latest add CratesSo/SKILLS/plan-my-grill`
 
 ## Adapted from Matt Pocock's [`grill-me`](https://github.com/mattpocock/skills/tree/main/grill-me) skill.

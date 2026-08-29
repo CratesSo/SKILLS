@@ -20,4 +20,4 @@ Current version: v3.1.0
 
 ## Install
 
-`npx skills@latest add CratesSo/skills/handoff`
+`npx skills@latest add CratesSo/SKILLS/handoff`
