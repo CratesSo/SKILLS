@@ -1,9 +1,0 @@
-interface:
-  display_name: "Audit Team"
-  short_description: "Coordinate focused repo audits"
-  default_prompt: "Use $audit-team."
-
-  icon_small: "./assets/icon.png"
-  icon_large: "./assets/icon.png"
-policy:
-  allow_implicit_invocation: false

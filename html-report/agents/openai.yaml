@@ -1,9 +1,0 @@
-interface:
-  display_name: "HTML Report"
-  short_description: "Render standalone HTML reports"
-  default_prompt: "Use $html-report."
-
-  icon_small: "./assets/icon.png"
-  icon_large: "./assets/icon.png"
-policy:
-  allow_implicit_invocation: false
