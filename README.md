@@ -22,7 +22,7 @@
 
 | Skill | Directory | Current version | Tag |
 | --- | --- | --- | --- |
-| **plan-my-grill** | `plan-my-grill/` | v2.0.0 | `plan-my-grill/v2.0.0` |
+| **plan-my-grill** | `plan-my-grill/` | v3.0.0 | `plan-my-grill/v3.0.0` |
 | **goal** | `goal/` | v2.0.2 | `goal/v2.0.2` |
 | **handoff** | `handoff/` | v3.1.0 | `handoff/v3.1.0` |
 | **actions** | `actions/` | v1.0.7 | `actions/v1.0.7` |
